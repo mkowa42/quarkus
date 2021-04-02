@@ -170,6 +170,9 @@ public class OidcClientRecorder {
         if (oidcConfig.getScopes().isPresent()) {
             grantParams.add(OidcConstants.TOKEN_SCOPE, oidcConfig.getScopes().get().stream().collect(Collectors.joining(" ")));
         }
+        if (oidcConfig.getAudience().isPresent()) {
+            grantParams.add(OidcConstants.TOKEN_AUDIENCE, oidcConfig.getAudience().get());
+        }
     }
 
     private static Uni<String> discoverTokenRequestUri(WebClient client, String authServerUrl, OidcClientConfig oidcConfig) {

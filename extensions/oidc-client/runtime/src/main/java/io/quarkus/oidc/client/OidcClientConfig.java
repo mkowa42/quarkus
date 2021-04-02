@@ -26,10 +26,16 @@ public class OidcClientConfig extends OidcCommonConfig {
     public boolean clientEnabled = true;
 
     /**
-     * List of access token scopes
+     * List of access token scopes.
      */
     @ConfigItem
     public Optional<List<String>> scopes = Optional.empty();
+
+    /**
+     * The API's unique identifier as the intended audience of the access token (indicated by the aud claim).
+     */
+    @ConfigItem
+    public Optional<String> audience = Optional.empty();
 
     /**
      * Refresh token time skew in seconds.
@@ -115,6 +121,14 @@ public class OidcClientConfig extends OidcCommonConfig {
 
     public void setScopes(List<String> scopes) {
         this.scopes = Optional.of(scopes);
+    }
+
+    public Optional<String> getAudience() {
+        return audience;
+    }
+
+    public void setAudience(String audience) {
+        this.audience = Optional.of(audience);
     }
 
     public Optional<Duration> getRefreshTokenTimeSkew() {

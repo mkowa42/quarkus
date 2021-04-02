@@ -23,6 +23,7 @@ public final class OidcConstants {
     public static final String PASSWORD_GRANT_USERNAME = "username";
     public static final String PASSWORD_GRANT_PASSWORD = "password";
 
+    public static final String TOKEN_AUDIENCE = "audience";
     public static final String TOKEN_SCOPE = "scope";
     public static final String GRANT_TYPE = "grant_type";
 
