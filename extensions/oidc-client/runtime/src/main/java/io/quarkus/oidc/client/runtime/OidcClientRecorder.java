@@ -148,6 +148,10 @@ public class OidcClientRecorder {
                                     passwordGrantOptions.get(OidcConstants.PASSWORD_GRANT_USERNAME));
                             tokenGrantParams.add(OidcConstants.PASSWORD_GRANT_PASSWORD,
                                     passwordGrantOptions.get(OidcConstants.PASSWORD_GRANT_PASSWORD));
+                        } else if (oidcConfig.grant.getType() == Grant.Type.CLIENT) {
+                            Map<String, String> clientCredentialsGrantOptions = oidcConfig.getGrantOptions()
+                                    .get(OidcConstants.CLIENT_CREDENTIALS_GRANT);
+                            tokenGrantParams.addAll(clientCredentialsGrantOptions);
                         }
 
                         MultiMap commonRefreshGrantParams = new MultiMap(io.vertx.core.MultiMap.caseInsensitiveMultiMap());
